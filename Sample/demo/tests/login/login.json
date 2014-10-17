@@ -1,0 +1,67 @@
+{
+    "type": "script",
+    "seleniumVersion": "2",
+    "formatVersion": 2,
+    "steps": [
+        {
+            "type": "store",
+            "text": "123123",
+            "variable": "password"
+        },
+        {
+            "type": "store",
+            "text": "ryanpaulfyfe+testhumanityemployee@gmail.com",
+            "variable": "email"
+        },
+        {
+            "type": "get",
+            "url": "https://account.humanity.com/"
+        },
+        {
+            "type": "waitForCurrentUrl",
+            "url": "https://accounts.humanity.com/signin",
+            "timeoutSeconds": 10
+        },
+        {
+            "type": "setElementText",
+            "locator": {
+                "type": "xpath",
+                "value": " //input[@id='login-email']"
+            },
+            "text": "${email}"
+        },
+        {
+            "type": "setElementText",
+            "locator": {
+                "type": "xpath",
+                "value": "//label[text()='Password']/following-sibling::input"
+            },
+            "text": "${password}"
+        },
+        {
+            "type": "clickElement",
+            "locator": {
+                "type": "xpath",
+                "value": "//input[@value='Sign in']"
+            }
+        },
+        {
+            "type": "waitForCurrentUrl",
+            "url": "https://account.humanity.com/#!networks",
+            "timeoutSeconds": 10
+        },
+        {
+            "type": "assertElementPresent",
+            "locator" : {
+                "type" : "css selector",
+                "value" : "#logout"
+            }
+        }
+    ],
+    "data": {
+        "configs": {},
+        "source": "none"
+    },
+    "inputs": [],
+    "timeoutSeconds": 60
+}

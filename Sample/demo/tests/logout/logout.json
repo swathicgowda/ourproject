@@ -1,0 +1,40 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://account.humanity.com/#!networks"
+    },
+    {
+      "type": "waitForElementPresent",
+      "locator": {
+        "type": "xpath",
+        "value": "//a[text()='LOGOUT']"
+      }
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "xpath",
+        "value": "//a[text()='LOGOUT']"
+      }
+    },
+    {
+      "type": "waitForTextPresent",
+      "text": "Sign in to your account",
+	"timeoutSeconds": 40
+    },
+    {
+      "type": "assertTextPresent",
+      "text": "Sign in to your account"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}
